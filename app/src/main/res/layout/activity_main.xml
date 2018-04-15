@@ -7,7 +7,19 @@
     tools:context="example.com.subletfinder.MainActivity">
 
 
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="43dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="startAddNewSublet"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -15,7 +27,11 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:id="@+id/rvToDo"
-        />
+        >
+
+
+    </android.support.v7.widget.RecyclerView>
+
 
 </RelativeLayout>
 

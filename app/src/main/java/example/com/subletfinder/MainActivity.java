@@ -1,10 +1,12 @@
 package example.com.subletfinder;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -38,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    public void startAddNewSublet(View view) {                                   // Will eventually need to be a startActivityForResponse
+        Intent intent = new Intent(this, AddSubletActivity.class);     // Only sends the intent and switched activity
+        startActivityForResult(intent, 1);
+    }
 
 
     @Override

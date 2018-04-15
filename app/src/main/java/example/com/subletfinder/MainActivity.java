@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rvSublet = (RecyclerView) findViewById(R.id.rvToDo);
-       // if (savedInstanceState == null) {
-            items = SubletItem.createInitialBucketList(5);         // Start with 20 so that it shows recycler view in action
-       // }
+        if (savedInstanceState == null) {
+            items = SubletItem.createInitialBucketList(25);         // Start with 20 so that it shows recycler view in action
+        }
 
         SubletListAdapter adapter = new SubletListAdapter(this, items);
         // Attach the adapter to the recyclerview to populate items
@@ -45,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user's current state
         Log.d("RotationExample", "Rotating!");
-       // savedInstanceState.putParcelableArrayList("items", items);
-//HERE TOO
+        savedInstanceState.putParcelableArrayList("items", items);
 
         super.onSaveInstanceState(savedInstanceState);
     }
@@ -57,11 +56,10 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
 
         // Restore state members from saved instance
-       // items = savedInstanceState.getParcelableArrayList("items");
-//LOOK HERE IF SHIT FAILS
-       // SubletListAdapter adapter = new SubletListAdapter(this, items);
+        items = savedInstanceState.getParcelableArrayList("items");
+        SubletListAdapter adapter = new SubletListAdapter(this, items);
         // Attach the adapter to the recyclerview to populate items
-        //rvSublet.setAdapter(adapter);
+        rvSublet.setAdapter(adapter);
         // Set layout manager to position the items
         rvSublet.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "501479838308-hdo50fp6j3jj17g19pv5q833739b171r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "example.com.subletfinder",
+            "certificate_hash": "97e5925e3cff4ea8420bf8a64b8450bba603b0db"
+          }
+        },
+        {
           "client_id": "501479838308-d5v7a4m5d43cpaqi7k9c6ihoco3mm40b.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "501479838308-d5v7a4m5d43cpaqi7k9c6ihoco3mm40b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

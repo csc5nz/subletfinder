@@ -23,20 +23,38 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/label_name"
+                android:id="@+id/label_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:labelFor="@+id/field_name"
-                android:text="temp" />
+                android:text="Title" />
 
             <EditText
-                android:id="@+id/field_name"
+                android:id="@+id/field_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/label_name"
+                android:layout_below="@+id/label_title"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/label_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/field_title"
+                android:labelFor="@+id/field_description"
+                android:text="Location" />
+
+
+            <EditText
+                android:id="@+id/field_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_location"
+                android:layout_centerHorizontal="true"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -44,9 +62,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/field_name"
+                android:layout_below="@+id/field_location"
                 android:labelFor="@+id/field_description"
-                android:text="temp2" />
+                android:text="Description" />
 
 
             <EditText
@@ -57,51 +75,15 @@
                 android:layout_centerHorizontal="true"
                 android:inputType="textPersonName" />
 
-            <TextView
-                android:id="@+id/label_latitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/field_description"
-                android:labelFor="@+id/field_latitude"
-                android:text="temp3" />
 
-            <EditText
-                android:id="@+id/field_latitude"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/label_latitude"
-                android:layout_centerHorizontal="true"
-                android:inputType="numberDecimal" />
 
-            <TextView
-                android:id="@+id/label_longitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/field_latitude"
-                android:labelFor="@+id/field_longitude"
-                android:text="temp4" />
 
-            <EditText
-                android:id="@+id/field_longitude"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/label_longitude"
-                android:inputType="numberDecimal" />
-
-            <DatePicker
-                android:id="@+id/datePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/field_longitude"
-                android:layout_centerHorizontal="true" />
 
             <Button
                 android:id="@+id/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/datePicker"
+                android:layout_below="@id/field_description"
                 android:layout_centerHorizontal="true"
                 android:text="save"
                 android:onClick="saveNewItem"/>

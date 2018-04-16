@@ -13,6 +13,7 @@ public class SubletItem implements Parcelable {
     private String mName;
     //GPS?
     private String mAddress;
+    private String mDescription;
 
     public String getmName() {
         return mName;
@@ -20,6 +21,7 @@ public class SubletItem implements Parcelable {
     public String getmAddress() {
         return mAddress;
     }
+    public String getmDescription() { return mDescription; }
 
     private static int lastBucketId = 0;
 
@@ -37,6 +39,7 @@ public class SubletItem implements Parcelable {
     private SubletItem(Parcel in) {
         mName = in.readString();
         mAddress = in.readString();
+        mDescription = in.readString();
     }
 
     public int describeContents() {
@@ -45,20 +48,21 @@ public class SubletItem implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(mName);
         out.writeString(mAddress);
+        out.writeString(mDescription);
     }
 
 
-    public SubletItem(String name, String address) {
+    public SubletItem(String name, String address, String desc) {
         mName = name;
         mAddress = address;
-
+        mDescription = desc;
     }
 
     public static ArrayList<SubletItem> createInitialBucketList(int numBuckets) {       // Pre-populates the list
         ArrayList<SubletItem> items = new ArrayList<SubletItem>();
 
         for (int i = 1; i <= numBuckets; i++) {
-            items.add(new SubletItem("Name " + ++lastBucketId, "address " + lastBucketId));
+            items.add(new SubletItem("Name " + ++lastBucketId, "address " + lastBucketId, ""));
         }
         return items;
     }

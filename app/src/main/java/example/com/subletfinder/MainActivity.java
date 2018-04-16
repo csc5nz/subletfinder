@@ -1,5 +1,6 @@
 package example.com.subletfinder;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,5 +68,20 @@ public class MainActivity extends AppCompatActivity {
         rvSublet.setAdapter(adapter);
         // Set layout manager to position the items
         rvSublet.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {       //everything went to plan
+            if (resultCode == Activity.RESULT_OK) {
+                String title = data.getStringExtra("title");
+                String desc = data.getStringExtra("desc");
+                String loc = data.getStringExtra("loc");
+                SubletItem s = new SubletItem(title, loc, desc);
+                items.add(s);
+                rvSublet.getAdapter().notifyDataSetChanged();
+
+            }
+        }
     }
 }

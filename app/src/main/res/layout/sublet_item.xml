@@ -15,8 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:onClick="onItemClick"
         />
+    <!---android:onClick="onItemClick"-->
 
     <TextView
         android:id="@+id/address"
@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:onClick="onItemClick"
         />
+    <!--android:onClick="onItemClick"-->
 
 
 

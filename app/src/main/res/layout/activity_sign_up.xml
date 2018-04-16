@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.com.subletfinder.LogInActivity">
+    tools:context="example.com.subletfinder.SignUpActivity">
+
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -56,19 +57,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="39dp"
             android:onClick="signIn"
-            android:text="@string/sign_in" />
-
-        <Button
-            android:id="@+id/signupButton"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="14dp"
-            android:onClick="signUp"
-            android:text="@string/sign_up" />
+            android:text="sign up" />
 
         <TextView
             android:id="@+id/passwordTextView"
@@ -79,4 +68,6 @@
             android:layout_marginTop="39dp"
             android:text="@string/password" />
     </RelativeLayout>
+
+
 </android.support.constraint.ConstraintLayout>

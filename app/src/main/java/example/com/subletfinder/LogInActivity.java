@@ -33,11 +33,11 @@ public class LogInActivity extends AppCompatActivity {
         String password = settings.getString("password", "none");
         String logedin = settings.getString("loggedin", "none");
         // If loged in skip to mainactivity
-//        if (logedin.equals("True")) {
-//           // Open main activity for this account
-//            Intent intent = new Intent(this, MainActivity.class);     // Open main activity
-//            startActivity(intent);
-//        }
+        if (logedin.equals("True")) {
+           // Open main activity for this account
+            Intent intent = new Intent(this, MainActivity.class);     // Open main activity
+            startActivity(intent);
+        }
 
         //Set title and back button for action bar
         //getSupportActionBar().setTitle("Sign Up");

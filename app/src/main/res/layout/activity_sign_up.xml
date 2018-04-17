@@ -56,7 +56,7 @@
             android:layout_below="@+id/passwordEditText"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="39dp"
-            android:onClick="signIn"
+            android:onClick="signUp"
             android:text="sign up" />
 
         <TextView

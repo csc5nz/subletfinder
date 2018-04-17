@@ -31,15 +31,20 @@ public class SignUpActivity extends AppCompatActivity {
         // Get preferences
         String email = settings.getString("email", "none");
         String password = settings.getString("password", "none");
-        String logedin = settings.getString("loggedin", "none");
-        if (logedin.equals("True")) {
-            // Open main activity for this account
-            Intent intent = new Intent(this, MainActivity.class);     // Open main activity
-            startActivity(intent);
-        }
+//        String logedin = settings.getString("loggedin", "none");
+//        if (logedin.equals("True")) {
+//            // Open main activity for this account
+//            Intent intent = new Intent(this, MainActivity.class);     // Open main activity
+//            startActivity(intent);
+//        }
+
+        //Set title and back button for action bar
+        getSupportActionBar().setTitle("Sign Up");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
-    public void signIn(View view) {
+    public void signUp(View view) {
         // Check if valid email/password combo
 
         // Save email/password into share preference
@@ -62,21 +67,15 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Commit the edits
         editor.commit();
-
-
-        //Set title and back button for action bar
-        getSupportActionBar().setTitle("Sign Up");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     // Load shared preferences
     public void loadFromSharedPreferences(View view) {
         // Restore preferences
-        SharedPreferences settngs = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         // Get preferences
-        String email = settngs.getString("email", "none");
-        String password = settngs.getString("password", "none");
-        String logedin = settngs.getString("loggedin", "none");
+        String email = settings.getString("email", "none");
+        String password = settings.getString("password", "none");
+        String logedin = settings.getString("loggedin", "none");
     }
 }

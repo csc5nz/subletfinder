@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.view.View;
 import android.content.Intent;
-
+import android.widget.Toast;
 
 
 public class LogInActivity extends AppCompatActivity {
@@ -47,11 +47,26 @@ public class LogInActivity extends AppCompatActivity {
         // Check if valid email/password combo
 
         // Save email/password into share preference
-        saveToSharePreferences(view);
+        // Restore preferences
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        // Get preferences
+        String email = settings.getString("email", "none");
+        String password = settings.getString("password", "none");
+        String logedin = settings.getString("loggedin", "none");
 
-        // Open main activity for this account
-        Intent intent = new Intent(this, MainActivity.class);     // Open main activity
-        startActivity(intent);
+
+        if(email.equals(emailEditText.getText().toString()) && password.equals(passwordEditText.getText().toString())) {
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("loggedin", "True");
+            editor.commit();
+            // Open main activity for this account
+            Intent intent = new Intent(this, MainActivity.class);     // Open main activity
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(LogInActivity.this, "Authentication failed.",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     //Save info into share preferences

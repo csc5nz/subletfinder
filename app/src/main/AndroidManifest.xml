@@ -28,10 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity"
-            android:parentActivityName=".LogInActivity">
-
-        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:parentActivityName=".LogInActivity"></activity>
+        <activity android:name=".AddImageActivity"
+            android:parentActivityName=".AddSubletActivity"></activity>
     </application>
 
 </manifest>

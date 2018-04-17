@@ -49,4 +49,9 @@ public class AddSubletActivity extends AppCompatActivity {
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
+
+    public void addImage(android.view.View view) {
+        Intent intent = new Intent(this, AddImageActivity.class);     // Only sends the intent and switched activity
+        startActivityForResult(intent, 1);
+    }
 }

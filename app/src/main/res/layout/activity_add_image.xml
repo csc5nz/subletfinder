@@ -67,4 +67,16 @@
         android:layout_centerHorizontal="true"
         android:onClick="saveImage"
         android:text="Save" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/floatingActionButton4"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="42dp"
+        android:layout_toEndOf="@+id/takePictureButton"
+        android:clickable="true"
+        android:onClick="signOut"
+        app:srcCompat="@android:drawable/btn_dialog" />
 </RelativeLayout>

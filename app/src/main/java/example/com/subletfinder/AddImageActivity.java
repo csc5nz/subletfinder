@@ -22,6 +22,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+
+
+
 /**
 
  Assignment Notes: Add code here to make the call either the camera or
@@ -36,6 +42,8 @@ import java.util.Locale;
  */
 
 public class AddImageActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     private Intent intent;
 
@@ -66,6 +74,9 @@ public class AddImageActivity extends AppCompatActivity {
         //Set title and back button for action bar
         getSupportActionBar().setTitle("Add Picture");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Authorization
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -154,6 +165,13 @@ public class AddImageActivity extends AppCompatActivity {
     public void saveImage(android.view.View view) {
         setResult(Activity.RESULT_OK, intent);
         finish();
+    }
+
+    public void signOut(View view) {
+        mAuth.signOut();
+        //Intent intent = new Intent(AddImageActivity.this, LogInActivity.class);     // Open main activity
+        //startActivity(intent);
+
     }
 
 

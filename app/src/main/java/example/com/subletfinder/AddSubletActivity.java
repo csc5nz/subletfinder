@@ -7,12 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
 
+import android.widget.Toast;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+
 /**
  * Created by danielbrown on 4/14/18.
  */
 
 public class AddSubletActivity extends AppCompatActivity {
     private Intent intent;
+
+    // Firebase authorization
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +31,30 @@ public class AddSubletActivity extends AppCompatActivity {
         //Set title and back button for action bar
         getSupportActionBar().setTitle("Add Sublet");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Firebase Authorization
+        mAuth = FirebaseAuth.getInstance();
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Check if user is signed in (non-null) and and get user id.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            // Get user id
+            String uid = currentUser.getUid();
+        }
+        else {
+            // User not logged in send to LogInActivity
+            Toast.makeText(AddSubletActivity.this, "You are not logged in",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(AddSubletActivity.this, LogInActivity.class);     // Open main activity
+            startActivity(intent);
+        }
+    }
+
     @Override
     public void onBackPressed(){                    //When back button pressed send back intent with CANCELED message
         setResult(Activity.RESULT_CANCELED, intent);

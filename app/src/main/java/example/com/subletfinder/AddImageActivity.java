@@ -1,31 +1,41 @@
 package example.com.subletfinder;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.UUID;
 
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 
 /**
@@ -53,8 +63,14 @@ public class AddImageActivity extends AppCompatActivity {
 
     ImageView imageView;
     Button takePictureFloat;
+    Bitmap bmp;
 
     Uri file;
+
+    //Firebase
+    FirebaseStorage storage;
+    StorageReference storageReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +80,11 @@ public class AddImageActivity extends AppCompatActivity {
         takePictureFloat = (Button) findViewById(R.id.takePictureButton);
         imageView = (ImageView) findViewById(R.id.imageView);
 
+        intent =  new Intent(this, AddSubletActivity.class);
+
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         // We are giving you the code that checks for permissions
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -134,8 +155,8 @@ public class AddImageActivity extends AppCompatActivity {
 
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                    // Log.d(TAG, String.valueOf(bitmap));
-
+                     Log.d("YO", String.valueOf(bitmap));
+                    bmp = bitmap;
                     imageView.setImageBitmap(bitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -163,6 +184,16 @@ public class AddImageActivity extends AppCompatActivity {
 
 
     public void saveImage(android.view.View view) {
+        //Convert to byte array
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        if (byteArray == null) {
+            Log.d("AHHHHHH", "AHAKLFJKLDJFKL:J!");
+        }
+
+        intent.putExtra("image",byteArray);
+      //  intent.putExtra("location", )
         setResult(Activity.RESULT_OK, intent);
         finish();
     }

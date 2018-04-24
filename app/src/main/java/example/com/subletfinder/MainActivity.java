@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Firebase authorization
     private FirebaseAuth mAuth;
+    String uid;
 
 
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
             // Get user id
-            String uid = currentUser.getUid();
+            uid = currentUser.getUid();
         }
         else {
             // User not logged in send to LogInActivity

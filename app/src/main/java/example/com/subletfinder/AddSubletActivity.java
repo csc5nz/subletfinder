@@ -21,6 +21,7 @@ public class AddSubletActivity extends AppCompatActivity {
 
     // Firebase authorization
     private FirebaseAuth mAuth;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class AddSubletActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
             // Get user id
-            String uid = currentUser.getUid();
+            uid = currentUser.getUid();
         }
         else {
             // User not logged in send to LogInActivity

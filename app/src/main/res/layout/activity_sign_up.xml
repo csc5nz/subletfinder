@@ -46,7 +46,8 @@
             android:layout_below="@+id/emailEditText"
             android:layout_marginTop="60dp"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:imeOptions="actionDone" />
 
         <Button
             android:id="@+id/signinButton"

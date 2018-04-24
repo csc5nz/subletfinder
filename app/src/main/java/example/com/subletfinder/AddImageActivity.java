@@ -23,9 +23,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.auth.FirebaseUser;
 
 
 /**
@@ -43,7 +42,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class AddImageActivity extends AppCompatActivity {
 
+    // Firebase authorization
     private FirebaseAuth mAuth;
+    String uid;
 
     private Intent intent;
 
@@ -75,8 +76,27 @@ public class AddImageActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Add Picture");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Authorization
+        // Firebase authorization
         mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Check if user is signed in (non-null) and and get user id.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            // Get user id
+            uid = currentUser.getUid();
+        }
+        else {
+            // User not logged in send to LogInActivity
+            Toast.makeText(AddImageActivity.this, "You are not logged in",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(AddImageActivity.this, LogInActivity.class);     // Open main activity
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -169,8 +189,8 @@ public class AddImageActivity extends AppCompatActivity {
 
     public void signOut(View view) {
         mAuth.signOut();
-        //Intent intent = new Intent(AddImageActivity.this, LogInActivity.class);     // Open main activity
-        //startActivity(intent);
+        Intent intent = new Intent(AddImageActivity.this, LogInActivity.class);     // Open main activity
+        startActivity(intent);
 
     }
 

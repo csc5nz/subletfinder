@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         rvSublet.setAdapter(adapter);
         // Set layout manager to position the items
         rvSublet.setLayoutManager(new LinearLayoutManager(this));
+        
+        rvSublet.addItemDecoration(new SimpleDividerItemDecoration(this));
 
         //Set title for action bar
         getSupportActionBar().setTitle("Sublet Finder");

@@ -12,10 +12,18 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
+import android.widget.Toast;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+
 public class MainActivity extends AppCompatActivity {
     RecyclerView rvSublet;
     ArrayList<SubletItem> items;
     EditText nameField;
+
+    // Firebase authorization
+    private FirebaseAuth mAuth;
 
 
 
@@ -37,7 +45,28 @@ public class MainActivity extends AppCompatActivity {
         //Set title for action bar
         getSupportActionBar().setTitle("Sublet Finder");
 
+        //Firebase Authorization
+        mAuth = FirebaseAuth.getInstance();
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Check if user is signed in (non-null) and and get user id.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            // Get user id
+            String uid = currentUser.getUid();
+        }
+        else {
+            // User not logged in send to LogInActivity
+            Toast.makeText(MainActivity.this, "You are not logged in",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, LogInActivity.class);     // Open main activity
+            startActivity(intent);
+        }
     }
 
 

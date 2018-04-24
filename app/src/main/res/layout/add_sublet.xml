@@ -76,8 +76,12 @@
                 android:inputType="textPersonName" />
 
 
-
-
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/field_description"
+                app:srcCompat="@drawable/common_full_open_on_phone" />
 
             <Button
                 android:id="@+id/button_save"

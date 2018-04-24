@@ -2,11 +2,14 @@ package example.com.subletfinder;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -85,5 +88,19 @@ public class AddSubletActivity extends AppCompatActivity {
     public void addImage(android.view.View view) {
         Intent intent = new Intent(this, AddImageActivity.class);     // Only sends the intent and switched activity
         startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {       //everything went to plan
+            if (resultCode == Activity.RESULT_OK) {
+                byte[] byteArray = data.getByteArrayExtra("image");
+                Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+                ImageView result = (ImageView)findViewById(R.id.imageView3);
+                result.setImageBitmap(bmp);
+
+            }
+
+        }
     }
 }

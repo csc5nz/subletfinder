@@ -29,14 +29,11 @@ import java.util.UUID;
 
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+
 
 
 /**
@@ -210,10 +207,6 @@ public class AddImageActivity extends AppCompatActivity {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
-        if (byteArray == null) {
-            Log.d("AHHHHHH", "AHAKLFJKLDJFKL:J!");
-        }
-
         intent.putExtra("image",byteArray);
       //  intent.putExtra("location", )
         setResult(Activity.RESULT_OK, intent);

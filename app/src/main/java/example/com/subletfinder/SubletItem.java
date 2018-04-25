@@ -3,7 +3,12 @@ package example.com.subletfinder;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Created by danielbrown on 4/14/18.
@@ -61,9 +66,24 @@ public class SubletItem implements Parcelable {
     public static ArrayList<SubletItem> createInitialBucketList(int numBuckets) {       // Pre-populates the list
         ArrayList<SubletItem> items = new ArrayList<SubletItem>();
 
-        for (int i = 1; i <= numBuckets; i++) {
-            items.add(new SubletItem("Name " + ++lastBucketId, "address " + lastBucketId, ""));
-        }
+//        for (int i = 1; i <= numBuckets; i++) {
+//            items.add(new SubletItem("Name " + ++lastBucketId, "address " + lastBucketId, ""));
+//        }
+
+
         return items;
     }
+
+    // For firebase database
+    public SubletItem() {
+    }
+//    @Exclude
+//    public Map<String, Object> toMap() {
+//        HashMap<String, Object> result = new HashMap<>();
+//        result.put("mName", mName);
+//        result.put("mAddress", mAddress);
+//        result.put("MDescription", mDescription);
+//
+//        return result;
+//    }
 }

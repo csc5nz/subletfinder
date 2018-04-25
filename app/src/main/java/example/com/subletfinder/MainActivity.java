@@ -11,10 +11,19 @@ import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     // Firebase authorization
     private FirebaseAuth mAuth;
     String uid;
+
+    // Firebase database
+    DatabaseReference databaseReference;
 
 
 
@@ -48,8 +60,33 @@ public class MainActivity extends AppCompatActivity {
         //Set title for action bar
         getSupportActionBar().setTitle("Sublet Finder");
 
-        //Firebase Authorization
+        // Firebase Authorization
         mAuth = FirebaseAuth.getInstance();
+
+        // Firebase database
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        // Firebase database - listen for change
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                getAllSublets(dataSnapshot);
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                getAllSublets(dataSnapshot);
+            }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                //taskDeletion(dataSnapshot);
+            }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
     }
 
@@ -57,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
+        // Firebase authorization
         // Check if user is signed in (non-null) and and get user id.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
@@ -110,11 +148,28 @@ public class MainActivity extends AppCompatActivity {
                 String desc = data.getStringExtra("desc");
                 String loc = data.getStringExtra("loc");
                 SubletItem s = new SubletItem(title, loc, desc);
-                items.add(s);
-                rvSublet.getAdapter().notifyDataSetChanged();
+                //items.add(s);
+                //rvSublet.getAdapter().notifyDataSetChanged();
+
+                // Firebase database
+                // Create new sublet node and get id
+                String subletId = databaseReference.child("sublets").push().getKey();
+                // Push s to database inside the "sublets" group
+                databaseReference.child("sublets").child(subletId).setValue(s);
 
             }
 
         }
+    }
+
+    private void getAllSublets(DataSnapshot dataSnapshot){
+        items.clear();
+        for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+            SubletItem s = singleSnapshot.getValue(SubletItem.class);
+
+
+            items.add(s);
+        }
+        rvSublet.getAdapter().notifyDataSetChanged();
     }
 }

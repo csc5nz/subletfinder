@@ -220,5 +220,11 @@ public class AddImageActivity extends AppCompatActivity {
 
     }
 
+    public void loadPreferences(View view) {
+        Intent intent = new Intent(AddImageActivity.this, SettingsActivity.class);     // Open main activity
+        startActivity(intent);
+
+    }
+
 
 }

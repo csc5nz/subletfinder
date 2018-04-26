@@ -13,14 +13,11 @@ Consume json from some api
 - maybe for autocomplete
 - or maybe we could have a separate page which lists all the on grounds housing options/buildings
 
-Menu/settings page
-- update user info
-- logout
-- use shared preferences to save extra settings?
-
 GPS (maybe if we need extra optional points)
 - I don't know how we could use this data
 - maybe for sorting listings based on proximity
+
+Drawer Menu?
 
 ### Technical additions to do:   
 - Add extra fields to sublet object: email, image url, user id, and maybe creation date.   
@@ -36,3 +33,4 @@ GPS (maybe if we need extra optional points)
 - Ability to log in   
 - Ability to load pictures from gallery
 - Firebase database
+- Settings

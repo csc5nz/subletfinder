@@ -33,4 +33,4 @@ Drawer Menu?
 - Ability to log in   
 - Ability to load pictures from gallery
 - Firebase database
-- Settings
+- Settings Page

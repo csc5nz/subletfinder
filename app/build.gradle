@@ -32,7 +32,9 @@ dependencies {
     implementation 'com.android.support:design:27.+'
     compile 'com.google.firebase:firebase-storage:11.0.4'
 
-    // firebase sdk
+    // firebase storage glide
+    // FirebaseUI Storage only
+    compile 'com.firebaseui:firebase-ui-storage:0.6.0'
 
 }
 

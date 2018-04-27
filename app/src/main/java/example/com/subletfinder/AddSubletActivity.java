@@ -11,10 +11,13 @@ import android.widget.EditText;
 
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 /**
@@ -97,11 +100,28 @@ public class AddSubletActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {       //everything went to plan
             if (resultCode == Activity.RESULT_OK) {
-                byte[] byteArray = data.getByteArrayExtra("image");
-                Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                ImageView result = (ImageView)findViewById(R.id.imageView3);
-                result.setImageBitmap(bmp);
+//                byte[] byteArray = data.getByteArrayExtra("image");
+//                Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+//                ImageView result = (ImageView)findViewById(R.id.imageView3);
+//                result.setImageBitmap(bmp);
 
+                // Firebase storage - download image to imageview
+                String filename = data.getStringExtra("filename");
+                // Reference to an image file in Firebase Storage
+                // Create a storage reference from our app
+                // Firebase storage
+                FirebaseStorage  storage = FirebaseStorage.getInstance();
+                StorageReference storageReference = storage.getReference();
+                StorageReference fileRef = storageReference.child(filename);
+
+                // ImageView in your Activity
+                ImageView imageView = (ImageView)findViewById(R.id.imageView3);
+
+                // Load the image using Glide
+                Glide.with(this /* context */)
+                        .using(new FirebaseImageLoader())
+                        .load(fileRef)
+                        .into(imageView);
             }
 
         }

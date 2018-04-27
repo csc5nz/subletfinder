@@ -147,7 +147,9 @@ public class MainActivity extends AppCompatActivity {
                 String title = data.getStringExtra("title");
                 String desc = data.getStringExtra("desc");
                 String loc = data.getStringExtra("loc");
-                SubletItem s = new SubletItem(title, loc, desc);
+                String email = data.getStringExtra("email");
+                String filename = data.getStringExtra("filename");
+                SubletItem s = new SubletItem(title, loc, desc, email, filename);
                 //items.add(s);
                 //rvSublet.getAdapter().notifyDataSetChanged();
 

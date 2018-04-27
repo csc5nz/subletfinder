@@ -103,6 +103,7 @@ public class AddImageActivity extends AppCompatActivity {
         // Firebase storage
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+        filename = "";
     }
 
     @Override
@@ -255,6 +256,7 @@ public class AddImageActivity extends AppCompatActivity {
                         Log.d("imageupload", "uploadfailed!");
                         // Handle unsuccessful uploads
                         // ...
+                        filename="";
                     }
                 });
     }

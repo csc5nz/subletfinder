@@ -31,6 +31,9 @@ public class AddSubletActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     String uid;
 
+    // firebase storage
+    String filename;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,9 @@ public class AddSubletActivity extends AppCompatActivity {
 
         //Firebase Authorization
         mAuth = FirebaseAuth.getInstance();
+
+        // firebase storage
+        filename = "";
     }
 
     @Override
@@ -83,9 +89,12 @@ public class AddSubletActivity extends AppCompatActivity {
         String desc = editTxt.getText().toString();
         editTxt = (EditText) findViewById(R.id.field_location);
         String location = editTxt.getText().toString();
+        String email = mAuth.getCurrentUser().getEmail();
         intent.putExtra("title", title);
         intent.putExtra("desc", desc);
         intent.putExtra("loc", location);
+        intent.putExtra("email", email);
+        intent.putExtra("filename", filename);
 
         setResult(Activity.RESULT_OK, intent);
         finish();
@@ -105,23 +114,23 @@ public class AddSubletActivity extends AppCompatActivity {
 //                ImageView result = (ImageView)findViewById(R.id.imageView3);
 //                result.setImageBitmap(bmp);
 
-                // Firebase storage - download image to imageview
-                String filename = data.getStringExtra("filename");
-                // Reference to an image file in Firebase Storage
-                // Create a storage reference from our app
-                // Firebase storage
-                FirebaseStorage  storage = FirebaseStorage.getInstance();
-                StorageReference storageReference = storage.getReference();
-                StorageReference fileRef = storageReference.child(filename);
-
-                // ImageView in your Activity
-                ImageView imageView = (ImageView)findViewById(R.id.imageView3);
-
-                // Load the image using Glide
-                Glide.with(this /* context */)
-                        .using(new FirebaseImageLoader())
-                        .load(fileRef)
-                        .into(imageView);
+//                // Firebase storage - download image to imageview
+                filename = data.getStringExtra("filename");
+//                // Reference to an image file in Firebase Storage
+//                // Create a storage reference from our app
+//                // Firebase storage
+//                FirebaseStorage  storage = FirebaseStorage.getInstance();
+//                StorageReference storageReference = storage.getReference();
+//                StorageReference fileRef = storageReference.child(filename);
+//
+//                // ImageView in your Activity
+//                ImageView imageView = (ImageView)findViewById(R.id.imageView3);
+//
+//                // Load the image using Glide
+//                Glide.with(this /* context */)
+//                        .using(new FirebaseImageLoader())
+//                        .load(fileRef)
+//                        .into(imageView);
             }
 
         }

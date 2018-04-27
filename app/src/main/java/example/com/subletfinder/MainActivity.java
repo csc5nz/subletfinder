@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -178,5 +179,34 @@ public class MainActivity extends AppCompatActivity {
             items.add(s);
         }
         rvSublet.getAdapter().notifyDataSetChanged();
+    }
+
+    public void onItemClick(View view) {
+        TextView t = (TextView)view;
+        String text = t.getText().toString();
+        Log.d("Problem", text);
+        SubletItem item = new SubletItem();
+        for (SubletItem i : items) {
+            if (i.getmName().equals(text)) {         // Gets the object that was clicked...kinda hacky
+                item = i;
+                Log.d("Problem", i.getmName());
+            }
+        }
+        if (true){//item.getmDescription() != null) {
+            Log.d("Problem", "true");
+            // Item is now gotten, now need to open up the editItemActivity
+            Intent intent = new Intent(this, ViewSubletActivity.class);
+            intent.putExtra("name", item.getmName());
+            intent.putExtra("desc", item.getmDescription());
+            intent.putExtra("loc", item.getmAddress());
+            intent.putExtra("email", item.getmEmail());
+            intent.putExtra("filename", item.getmFilename());
+            //startActivityForResult(intent, 2);
+            startActivity(intent);
+        }
+        else {
+            Log.d("Error", "Something went wrong...could not find item in list");
+        }
+
     }
 }

@@ -28,6 +28,9 @@ public class SubletItem implements Parcelable {
     public String getmAddress() {
         return mAddress;
     }
+    public String getmDescription() {
+        return mDescription;
+    }
     public String getmEmail() { return mEmail; }
     public String getmFilename() { return mFilename; }
 

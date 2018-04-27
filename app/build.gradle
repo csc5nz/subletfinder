@@ -36,7 +36,9 @@ dependencies {
 
 
 
-    // firebase sdk
+    // firebase storage glide
+    // FirebaseUI Storage only
+    compile 'com.firebaseui:firebase-ui-storage:0.6.0'
 
 }
 

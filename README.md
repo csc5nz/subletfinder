@@ -6,12 +6,11 @@
 
 ### Features to do:   
 View sublet page (non editable)  
-- Display name, location, description
+- <del>Display name, location, description</del>
 - button to send email (Open shared activity / features (i.e. Create an email to send, share with a text message, etc.) )
 
-Consume json from some api
-- maybe for autocomplete
-- or maybe we could have a separate page which lists all the on grounds housing options/buildings
+<del>Consume json from some api</del>
+
 
 GPS (maybe if we need extra optional points)
 - I don't know how we could use this data

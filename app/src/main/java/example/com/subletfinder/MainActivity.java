@@ -116,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
     }
 
+    public void startBuildings(View view) {
+        Intent intent = new Intent(this, BuildingsActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {

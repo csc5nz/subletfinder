@@ -29,6 +29,11 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
+            android:parentActivityName=".MainActivity"
+            android:name=".BuildingsActivity">
+
+        </activity>
+        <activity
             android:name=".SignUpActivity"
             android:parentActivityName=".LogInActivity" />
         <activity

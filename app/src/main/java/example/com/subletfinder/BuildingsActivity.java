@@ -37,10 +37,12 @@ public class BuildingsActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Building>>() {
             @Override
             public void onResponse(Call<List<Building>> call, Response<List<Building>> response) {
-                Log.d("HELLO!", ""+response.raw().request().url());
+                Log.d("HELLO!", ""+response.body().toString());
                 List<Building> sections = response.body();
+
                 String courseDisplay = "";
                 for(Building s : sections) {
+
                     Log.d("LousList", "Received: " + s);
                     courseDisplay += s + "\n";
                 }

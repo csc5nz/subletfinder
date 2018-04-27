@@ -4,54 +4,39 @@ package example.com.subletfinder;
  * Created by danielbrown on 4/26/18.
  */
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class Building {
     public static final String BASE_URL = "https://devhub.virginia.edu/api/5adfcbb667dd561ad0ac5d18/categories/";
 
-    private String name;
-    private double latitude;
-    private double longitude;
+    private String Name;
+    private double Latitude;
+    private double Longitude;
 
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public double getLatitude() {
-        return latitude;
+        return Latitude;
     }
 
     public void setLatitude(double latitude) {
-        this.latitude = latitude;
+        this.Latitude = latitude;
     }
 
     public double getLongitude() {
-        return longitude;
+        return Longitude;
     }
 
     public void setLongitude(double longitude) {
-        this.longitude = longitude;
+        this.Longitude = longitude;
     }
 
     public String toString() {
-        return name + " " + longitude + " : " + latitude;
+        return Name + " " + Longitude + " : " + Latitude;
     }
 }

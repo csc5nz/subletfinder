@@ -95,7 +95,8 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="43dp"
             android:layout_marginTop="38dp"
-            android:text="Send Email" />
+            android:text="Send Email"
+            android:onClick="sendEmail"/>
 
         <Button
             android:id="@+id/spaceButton"

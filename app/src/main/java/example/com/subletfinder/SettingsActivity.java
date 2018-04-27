@@ -20,7 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     // Shared prefs
-    public static final String PREFS_NAME = "CoreSkillsPrefsFile";
+    public static final String PREFS_NAME = "SubletPref";
 
     CheckBox emailCheckBox;
     EditText emailEditText;

@@ -7,9 +7,13 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -49,6 +53,20 @@ public class AddSubletActivity extends AppCompatActivity {
 
         // firebase storage
         filename = "";
+
+        // Virtual keyboard "Done" feature
+        final Button saveButton = (Button) findViewById((R.id.button_save));
+        EditText editTxt = (EditText) findViewById(R.id.field_description);
+        editTxt.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    saveButton.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override

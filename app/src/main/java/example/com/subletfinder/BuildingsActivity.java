@@ -23,6 +23,12 @@ public class BuildingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buildings_activity);
+
+        //Set title and back button for action bar
+        getSupportActionBar().setTitle("On Grounds Housing Options");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         callAPI();
     }
 

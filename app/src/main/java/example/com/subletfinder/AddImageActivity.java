@@ -123,6 +123,7 @@ public class AddImageActivity extends AppCompatActivity {
             Intent intent = new Intent(AddImageActivity.this, LogInActivity.class);     // Open main activity
             startActivity(intent);
         }
+
     }
 
     @Override

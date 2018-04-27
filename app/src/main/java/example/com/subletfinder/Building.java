@@ -8,6 +8,7 @@ public class Building {
     public static final String BASE_URL = "https://devhub.virginia.edu/api/5adfcbb667dd561ad0ac5d18/categories/";
 
     private String Name;
+    private String Address;
     private double Latitude;
     private double Longitude;
 
@@ -36,7 +37,15 @@ public class Building {
         this.Longitude = longitude;
     }
 
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        this.Address = address;
+    }
+
     public String toString() {
-        return Name + " " + Longitude + " : " + Latitude;
+        return Name;
     }
 }

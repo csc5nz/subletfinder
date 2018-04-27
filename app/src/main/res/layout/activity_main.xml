@@ -31,7 +31,7 @@
         android:layout_marginEnd="100dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="startAddNewSublet"
+        android:onClick="startSettings"
         app:backgroundTint="@color/colorAccent"
         app:srcCompat="@android:drawable/ic_menu_preferences" />
 
@@ -42,7 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/floatingActionButton"
         android:layout_alignParentBottom="true"
-
         android:layout_marginBottom="125dp"
         android:layout_marginEnd="100dp"
         android:clickable="true"

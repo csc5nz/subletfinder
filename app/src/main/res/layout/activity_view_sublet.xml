@@ -89,14 +89,14 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
         <Button
             android:id="@+id/emailButton"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView3"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="43dp"
             android:layout_marginTop="38dp"
-            android:text="Send Email"
-            android:onClick="sendEmail"/>
+            android:onClick="sendEmail"
+            android:text="Send Email" />
 
         <Button
             android:id="@+id/spaceButton"

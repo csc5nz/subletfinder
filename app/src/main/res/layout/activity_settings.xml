@@ -20,11 +20,11 @@
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/emailCheckBox"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="31dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Email for posts"
         android:inputType="textEmailAddress" />
 
     <TextView
@@ -32,17 +32,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/emailEditText"
-        android:text="Email" />
+        android:layout_below="@+id/emailCheckBox"
+        android:layout_marginTop="14dp"
+        android:text="Alternate Email" />
 
     <Button
         android:id="@+id/button3"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="38dp"
-        android:text="LOG OUT"
-        android:onClick="signOut"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/emailEditText"
+        android:layout_marginTop="138dp"
+        android:onClick="signOut"
+        android:text="LOG OUT" />
 </RelativeLayout>

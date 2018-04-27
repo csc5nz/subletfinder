@@ -31,6 +31,11 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //Set title and back button for action bar
+        getSupportActionBar().setTitle("Preferences");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         // Firebase authorization
         mAuth = FirebaseAuth.getInstance();
 

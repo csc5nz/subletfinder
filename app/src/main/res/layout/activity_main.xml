@@ -18,8 +18,8 @@
         android:clickable="true"
         android:focusable="true"
         android:onClick="startAddNewSublet"
-        app:backgroundTint="@android:color/holo_blue_dark"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:backgroundTint="@color/colorAccent"
+        app:srcCompat="@drawable/ic_add" />
 
 
     <android.support.design.widget.FloatingActionButton

@@ -6,12 +6,11 @@
 
 ### Features to do:   
 View sublet page (non editable)  
-- Display name, location, description
+- <del>Display name, location, description</del>
 - button to send email (Open shared activity / features (i.e. Create an email to send, share with a text message, etc.) )
 
-Consume json from some api
-- maybe for autocomplete
-- or maybe we could have a separate page which lists all the on grounds housing options/buildings
+<del>Consume json from some api</del>
+
 
 GPS (maybe if we need extra optional points)
 - I don't know how we could use this data
@@ -22,7 +21,7 @@ Drawer Menu?
 ### Technical additions to do:   
 - <del>Add extra fields to sublet object: email, image url, user id, and maybe creation date.</del>
 - <del>Upload image to firebase and save url on sublet object.</del>
-- Download image from firebase and display it on view sublet
+- <del>Download image from firebase and display it on view sublet</del>
 
 
 

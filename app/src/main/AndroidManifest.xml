@@ -34,7 +34,9 @@
         <activity
             android:name=".AddImageActivity"
             android:parentActivityName=".AddSubletActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".ViewSubletActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

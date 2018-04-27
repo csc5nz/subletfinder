@@ -212,12 +212,13 @@ public class AddImageActivity extends AppCompatActivity {
     public void saveImage(android.view.View view) {
         uploadImage();
         //Convert to byte array
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        intent.putExtra("image",byteArray);
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//        byte[] byteArray = stream.toByteArray();
+//        intent.putExtra("image",byteArray);
+//        intent.putExtra("filename", filename);
+//      //  intent.putExtra("location", )
         intent.putExtra("filename", filename);
-      //  intent.putExtra("location", )
         setResult(Activity.RESULT_OK, intent);
         finish();
     }

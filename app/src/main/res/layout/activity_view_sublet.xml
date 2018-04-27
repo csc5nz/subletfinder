@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="example.com.subletfinder.ViewSubletActivity">
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/label_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:labelFor="@+id/field_name"
+            android:text="Title" />
+
+        <TextView
+            android:id="@+id/field_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/label_title"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/label_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/field_title"
+            android:labelFor="@+id/field_description"
+            android:text="Location" />
+
+
+        <TextView
+            android:id="@+id/field_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_location"
+            android:layout_centerHorizontal="true"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/label_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/field_location"
+            android:labelFor="@+id/field_description"
+            android:text="Description" />
+
+
+        <TextView
+            android:id="@+id/field_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_description"
+            android:layout_centerHorizontal="true"
+            android:textSize="40sp" />
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_description"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/common_full_open_on_phone" />
+
+        <Button
+            android:id="@+id/emailButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="43dp"
+            android:layout_marginTop="38dp"
+            android:text="Send Email" />
+
+        <Button
+            android:id="@+id/spaceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/emailButton"
+            android:layout_below="@+id/emailButton"
+            android:text="Button"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+
+</ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -114,23 +114,9 @@ public class AddSubletActivity extends AppCompatActivity {
 //                ImageView result = (ImageView)findViewById(R.id.imageView3);
 //                result.setImageBitmap(bmp);
 
-//                // Firebase storage - download image to imageview
+//              // Image filename for Firebase storage
                 filename = data.getStringExtra("filename");
-//                // Reference to an image file in Firebase Storage
-//                // Create a storage reference from our app
-//                // Firebase storage
-//                FirebaseStorage  storage = FirebaseStorage.getInstance();
-//                StorageReference storageReference = storage.getReference();
-//                StorageReference fileRef = storageReference.child(filename);
 //
-//                // ImageView in your Activity
-//                ImageView imageView = (ImageView)findViewById(R.id.imageView3);
-//
-//                // Load the image using Glide
-//                Glide.with(this /* context */)
-//                        .using(new FirebaseImageLoader())
-//                        .load(fileRef)
-//                        .into(imageView);
             }
 
         }

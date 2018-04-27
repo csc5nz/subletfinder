@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Set title for action bar
         getSupportActionBar().setTitle("Sublet Finder");
+        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         // Firebase Authorization
         mAuth = FirebaseAuth.getInstance();

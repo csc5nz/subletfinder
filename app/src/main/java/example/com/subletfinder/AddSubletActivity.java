@@ -11,10 +11,13 @@ import android.widget.EditText;
 
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 /**
@@ -28,6 +31,9 @@ public class AddSubletActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     String uid;
 
+    // firebase storage
+    String filename;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,9 @@ public class AddSubletActivity extends AppCompatActivity {
 
         //Firebase Authorization
         mAuth = FirebaseAuth.getInstance();
+
+        // firebase storage
+        filename = "";
     }
 
     @Override
@@ -80,9 +89,12 @@ public class AddSubletActivity extends AppCompatActivity {
         String desc = editTxt.getText().toString();
         editTxt = (EditText) findViewById(R.id.field_location);
         String location = editTxt.getText().toString();
+        String email = mAuth.getCurrentUser().getEmail();
         intent.putExtra("title", title);
         intent.putExtra("desc", desc);
         intent.putExtra("loc", location);
+        intent.putExtra("email", email);
+        intent.putExtra("filename", filename);
 
         setResult(Activity.RESULT_OK, intent);
         finish();
@@ -97,11 +109,28 @@ public class AddSubletActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {       //everything went to plan
             if (resultCode == Activity.RESULT_OK) {
-                byte[] byteArray = data.getByteArrayExtra("image");
-                Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                ImageView result = (ImageView)findViewById(R.id.imageView3);
-                result.setImageBitmap(bmp);
+//                byte[] byteArray = data.getByteArrayExtra("image");
+//                Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+//                ImageView result = (ImageView)findViewById(R.id.imageView3);
+//                result.setImageBitmap(bmp);
 
+//                // Firebase storage - download image to imageview
+                filename = data.getStringExtra("filename");
+//                // Reference to an image file in Firebase Storage
+//                // Create a storage reference from our app
+//                // Firebase storage
+//                FirebaseStorage  storage = FirebaseStorage.getInstance();
+//                StorageReference storageReference = storage.getReference();
+//                StorageReference fileRef = storageReference.child(filename);
+//
+//                // ImageView in your Activity
+//                ImageView imageView = (ImageView)findViewById(R.id.imageView3);
+//
+//                // Load the image using Glide
+//                Glide.with(this /* context */)
+//                        .using(new FirebaseImageLoader())
+//                        .load(fileRef)
+//                        .into(imageView);
             }
 
         }

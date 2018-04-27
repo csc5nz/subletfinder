@@ -29,11 +29,13 @@ import java.util.UUID;
 
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
+import com.google.firebase.storage.UploadTask;
 
 
 /**
@@ -70,6 +72,9 @@ public class AddImageActivity extends AppCompatActivity {
     //Firebase
     FirebaseStorage storage;
     StorageReference storageReference;
+    Uri uri_for_upload;
+    Uri downloadUrl;
+    String filename;
 
 
     @Override
@@ -81,10 +86,6 @@ public class AddImageActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView);
 
         intent =  new Intent(this, AddSubletActivity.class);
-
-
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
 
         // We are giving you the code that checks for permissions
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -98,6 +99,11 @@ public class AddImageActivity extends AppCompatActivity {
 
         // Firebase authorization
         mAuth = FirebaseAuth.getInstance();
+
+        // Firebase storage
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        filename = "";
     }
 
     @Override
@@ -171,6 +177,7 @@ public class AddImageActivity extends AppCompatActivity {
             // Display it on layout
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getData();
+                uri_for_upload = uri;
 
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
@@ -203,11 +210,13 @@ public class AddImageActivity extends AppCompatActivity {
 
 
     public void saveImage(android.view.View view) {
+        uploadImage();
         //Convert to byte array
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         intent.putExtra("image",byteArray);
+        intent.putExtra("filename", filename);
       //  intent.putExtra("location", )
         setResult(Activity.RESULT_OK, intent);
         finish();
@@ -224,6 +233,32 @@ public class AddImageActivity extends AppCompatActivity {
         Intent intent = new Intent(AddImageActivity.this, SettingsActivity.class);     // Open main activity
         startActivity(intent);
 
+    }
+
+    private void uploadImage(){
+
+        Uri file = uri_for_upload;
+        filename = UUID.randomUUID().toString();
+        StorageReference riversRef = storageReference.child(filename);
+
+        riversRef.putFile(file)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Log.d("imageupload", "uploadsuccess!");
+                        // Get a URL to the uploaded content
+                        downloadUrl = taskSnapshot.getDownloadUrl();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Log.d("imageupload", "uploadfailed!");
+                        // Handle unsuccessful uploads
+                        // ...
+                        filename="";
+                    }
+                });
     }
 
 

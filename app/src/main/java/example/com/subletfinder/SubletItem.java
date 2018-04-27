@@ -19,6 +19,8 @@ public class SubletItem implements Parcelable {
     //GPS?
     private String mAddress;
     private String mDescription;
+    private String mEmail;
+    private String mFilename;
 
     public String getmName() {
         return mName;
@@ -26,7 +28,8 @@ public class SubletItem implements Parcelable {
     public String getmAddress() {
         return mAddress;
     }
-    public String getmDescription() { return mDescription; }
+    public String getmEmail() { return mEmail; }
+    public String getmFilename() { return mFilename; }
 
     private static int lastBucketId = 0;
 
@@ -45,6 +48,8 @@ public class SubletItem implements Parcelable {
         mName = in.readString();
         mAddress = in.readString();
         mDescription = in.readString();
+        mEmail = in.readString();
+        mFilename = in.readString();
     }
 
     public int describeContents() {
@@ -54,13 +59,18 @@ public class SubletItem implements Parcelable {
         out.writeString(mName);
         out.writeString(mAddress);
         out.writeString(mDescription);
+        out.writeString(mEmail);
+        out.writeString(mFilename);
     }
 
 
-    public SubletItem(String name, String address, String desc) {
+    public SubletItem(String name, String address, String desc, String email, String filename) {
         mName = name;
         mAddress = address;
         mDescription = desc;
+        mEmail = email;
+        mFilename = filename;
+
     }
 
     public static ArrayList<SubletItem> createInitialBucketList(int numBuckets) {       // Pre-populates the list

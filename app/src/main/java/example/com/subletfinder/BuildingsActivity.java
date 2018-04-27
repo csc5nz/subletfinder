@@ -23,9 +23,10 @@ public class BuildingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buildings_activity);
+        callAPI();
     }
 
-    public void callAPI(View view) {
+    public void callAPI() {
 
         APIInterface apiService =
                 APIClient.getClient().create(APIInterface.class);

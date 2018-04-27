@@ -21,7 +21,7 @@ Drawer Menu?
 ### Technical additions to do:   
 - <del>Add extra fields to sublet object: email, image url, user id, and maybe creation date.</del>
 - <del>Upload image to firebase and save url on sublet object.</del>
-- Download image from firebase and display it on view sublet
+- <del>Download image from firebase and display it on view sublet</del>
 
 
 

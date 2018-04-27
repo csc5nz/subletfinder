@@ -38,7 +38,7 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/label_title"
-            android:textSize="40sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/label_location"
@@ -56,7 +56,7 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
             android:layout_height="wrap_content"
             android:layout_below="@+id/label_location"
             android:layout_centerHorizontal="true"
-            android:textSize="40sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/label_description"
@@ -74,7 +74,7 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
             android:layout_height="wrap_content"
             android:layout_below="@+id/label_description"
             android:layout_centerHorizontal="true"
-            android:textSize="40sp" />
+            android:textSize="30sp" />
 
 
         <ImageView

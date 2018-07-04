@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/androidstudio
 
+# Firebase api key
+/app/google-services.json
+
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
 

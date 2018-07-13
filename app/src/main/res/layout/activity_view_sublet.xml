@@ -24,57 +24,34 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/label_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:labelFor="@+id/field_name"
-            android:text="Title" />
-
-        <TextView
             android:id="@+id/field_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/label_title"
-            android:textSize="25sp" />
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
 
-        <TextView
-            android:id="@+id/label_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/field_title"
-            android:labelFor="@+id/field_description"
-            android:text="Location" />
+            android:textSize="20sp" />
 
 
         <TextView
             android:id="@+id/field_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/label_location"
-            android:layout_centerHorizontal="true"
-            android:textSize="25sp" />
+            android:layout_below="@+id/field_title"
 
-        <TextView
-            android:id="@+id/label_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/field_location"
-            android:labelFor="@+id/field_description"
-            android:text="Description" />
+            android:layout_centerHorizontal="true"
+
+            android:textSize="17sp"/>
 
 
         <TextView
             android:id="@+id/field_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/label_description"
-            android:layout_centerHorizontal="true"
-            android:textSize="25sp" />
+            android:layout_below="@+id/field_location"
+
+            android:layout_centerHorizontal="true" />
 
 
         <ImageView
@@ -83,7 +60,7 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
             android:layout_height="wrap_content"
             android:layout_below="@+id/field_description"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/common_full_open_on_phone" />
 
         <Button
@@ -93,19 +70,10 @@ tools:context="example.com.subletfinder.ViewSubletActivity">
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView3"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="43dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="50dp"
             android:onClick="sendEmail"
             android:text="Send Email" />
-
-        <Button
-            android:id="@+id/spaceButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/emailButton"
-            android:layout_below="@+id/emailButton"
-            android:text="Button"
-            android:visibility="invisible" />
 
 
     </RelativeLayout>

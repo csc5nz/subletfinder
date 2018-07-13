@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Problem", text);
         SubletItem item = new SubletItem();
         for (SubletItem i : items) {
-            if (i.getmName().equals(text)) {         // Gets the object that was clicked...kinda hacky
+            if (i.getmName().equals(text) || i.getmAddress().equals(text)) {         // Gets the object that was clicked...kinda hacky
                 item = i;
                 Log.d("Problem", i.getmName());
             }

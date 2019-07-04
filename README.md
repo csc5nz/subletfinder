@@ -23,3 +23,5 @@ The app contains the following features:
 - Consume a pre-built web service - The app parses the data provided by the UVa buildings API
 - Open shared activity / features - The app is able to open a email client to allow student to email sublet owner
 - Use share preferences to save and load user settings
+
+test
